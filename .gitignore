@@ -1,0 +1,5 @@
+/db.sqlite3
+/venv
+chat/__pycache__
+chat/migrations
+lps/__pycache__
