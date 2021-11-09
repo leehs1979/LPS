@@ -31,15 +31,18 @@ ALLOWED_HOSTS = ['172.16.1.108', '127.0.0.1', 'localhost']
 
 # Application definition
 
-INSTALLED_APPS = [
+INSTALLED_APPS = [    
     'channels',
     'chat',
+    'lfp',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    
     
 ]
 
@@ -71,16 +74,17 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'lps.wsgi.application'
+#WSGI_APPLICATION = 'lps.wsgi.application'
 
 # Channels
 ASGI_APPLICATION = 'lps.asgi.application'
 CHANNEL_LAYERS = {
     'default': {
-        'BACKEND': 'channels_redis.core.RedisChannelLayer',
-        'CONFIG': {
-            "hosts": [('127.0.0.1', 6379)],
-        },
+        "BACKEND": "channels.layers.InMemoryChannelLayer"
+        #'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        #'CONFIG': {
+        #    "hosts": [('127.0.0.1', 6379)],
+        #},
     },
 }
 
